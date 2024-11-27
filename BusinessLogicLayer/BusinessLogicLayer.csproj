@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D311B13A-F1B0-46DE-9AB9-E6545A0D0F63}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BusinessLogicLayer</RootNamespace>
+    <AssemblyName>BusinessLogicLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dto\ConfigurationDto.cs" />
+    <Compile Include="Dto\PlainDetailDto.cs" />
+    <Compile Include="Dto\PlaneSiesaDto.cs" />
+    <Compile Include="Dto\ProcessEventLogDto.cs" />
+    <Compile Include="Dto\Query\CambioSituacionLogicaDto.cs" />
+    <Compile Include="Dto\Query\CuadreFacturaDto.cs" />
+    <Compile Include="Dto\Query\DevolucionProveedoresDto.cs" />
+    <Compile Include="Dto\Query\EntradaAlmacenCabeceraDetalleDto.cs" />
+    <Compile Include="Dto\Query\EntradaAlmacenCabeceraDto.cs" />
+    <Compile Include="Dto\Query\EntradaInventarioDto.cs" />
+    <Compile Include="Dto\Query\EntradaMovimientoDevolucionClienteDetalleDto.cs" />
+    <Compile Include="Dto\Query\EntradaOrdenFabricacionDto.cs" />
+    <Compile Include="Dto\Query\PreparacionCabeceraDto.cs" />
+    <Compile Include="Models\ChangeLogicalSituation\ChangeLogicalSituationDto.cs" />
+    <Compile Include="Models\ChangeLogicalSituation\ChangeLogicalSituationResponseDto.cs" />
+    <Compile Include="Models\ConfirmationStockAdjustment\ConfirmationStockAdjustmentDto.cs" />
+    <Compile Include="Models\ConfirmationStockAdjustment\ConfirmationStockAdjustmentResponseDto.cs" />
+    <Compile Include="Models\CustomerReturnConfirmation\CustomerReturnConfirmationDto.cs" />
+    <Compile Include="Models\CustomerReturnConfirmation\CustomerReturnConfirmationResponseDto.cs" />
+    <Compile Include="Models\OrdenFabricacion\OrdenFabricacionDto.cs" />
+    <Compile Include="Models\OrdenFabricacion\OrdenFabricacionResponseDto.cs" />
+    <Compile Include="Models\PlainDto.cs" />
+    <Compile Include="Models\PreparationConfirmation\PreparationConfirmationDto.cs" />
+    <Compile Include="Models\PreparationConfirmation\PreparationConfirmationResponseDto.cs" />
+    <Compile Include="Models\ReceptionConfirmation\RecibirConfRecepcionDto.cs" />
+    <Compile Include="Models\ReceptionConfirmation\RecibirConfRecepcionResponseDto.cs" />
+    <Compile Include="Models\RecibirConfCargaCamion\RecibirConfCargaCamionDto.cs" />
+    <Compile Include="Models\RecibirConfCargaCamion\RecibirConfCargaCamionResponseDto.cs" />
+    <Compile Include="Models\SupplierReturnConfirmation\SupplierReturnConfirmationDto.cs" />
+    <Compile Include="Models\SupplierReturnConfirmation\SupplierReturnConfirmationResponseDto.cs" />
+    <Compile Include="Models\_Common\MessageDto.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Common\DynamicPlainFile.cs" />
+    <Compile Include="Services\Common\PlainBase.cs" />
+    <Compile Include="Services\Common\PlainSectionSchema.cs" />
+    <Compile Include="Services\Common\SiesaPlainConnector.cs" />
+    <Compile Include="Services\Common\SiesaResponse.cs" />
+    <Compile Include="Services\Common\SoapCollection.cs" />
+    <Compile Include="Services\EventLog\EventlogHelper.cs" />
+    <Compile Include="Services\Plain\PlainBuilderManagerServices.cs" />
+    <Compile Include="Services\ReceptionServices.cs" />
+    <Compile Include="Services\Setting\SettingStorageServices.cs" />
+    <Compile Include="Services\SiesaServices.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{34d2b56d-2609-4cb5-97d3-da9af5aaec30}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shared\Shared.csproj">
+      <Project>{5c77ee57-b132-4d57-aa79-07ca7989f8c7}</Project>
+      <Name>Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
